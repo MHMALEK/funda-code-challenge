@@ -2,9 +2,10 @@
   "name": "funda-object-page",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "serve": "vite preview",
     "build": "vite build",
-    "serve": "vite preview"
+    "lint": "vue-cli-service lint",
+    "dev": "vite"
   },
   "dependencies": {
     "typescript": "^4.2.4",
@@ -12,10 +13,16 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.1",
+    "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.5",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.0.0",
     "postcss": "^8.2.10",
+    "prettier": "^2.2.1",
     "tailwindcss": "^2.1.1",
     "vite": "^2.1.5"
   }
