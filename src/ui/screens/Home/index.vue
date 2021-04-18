@@ -1,13 +1,27 @@
 <template>Home</template>
 
-<script setup>
-import { defineProps, reactive } from "vue";
+<script lang="ts">
+// vuex
+import { createNamespacedHelpers } from "vuex";
+import ActionTypes from "../../../store/modules/houseDetails/action-types";
 
-defineProps({
-  msg: String,
-});
+const { mapActions, mapGetters, mapMutations } = createNamespacedHelpers(
+  "houseDetails"
+);
 
-const state = reactive({ count: 0 });
+export default {
+  name: "Home",
+  components: {},
+
+  mounted: function () {
+    this.getSampleAction();
+  },
+  methods: {
+    ...mapActions({
+      getSampleAction: ActionTypes.SAMPLE_ACTION,
+    }),
+  },
+};
 </script>
 
 <style scoped>
