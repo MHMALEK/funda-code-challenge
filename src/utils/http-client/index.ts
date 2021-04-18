@@ -1,6 +1,6 @@
 import * as Axios from "axios";
 
-export enum HttpMethod {
+enum HttpMethod {
   GET = "GET",
   POST = "POST",
   PATCH = "PATCH",
@@ -8,8 +8,8 @@ export enum HttpMethod {
   DELETE = "DELETE",
 }
 
-export class HttpClient {
-  private _baseUrl: string;
+class HttpClient {
+  private _baseUrl: string | undefined;
 
   private CancelToken!: Axios.CancelTokenStatic;
 
@@ -18,7 +18,7 @@ export class HttpClient {
   /**
    * Create a new Http Client
    */
-  constructor(baseUrl: string) {
+  constructor(baseUrl: string | undefined) {
     this._baseUrl = baseUrl;
     this.createCancelToken();
     this.createCancelToken = this.createCancelToken.bind(this);
@@ -46,7 +46,6 @@ export class HttpClient {
   public request<D, P>(
     method: HttpMethod,
     url: string,
-    token?: string,
     data?: D,
     params?: P
   ): Promise<Axios.AxiosResponse> {
@@ -55,11 +54,12 @@ export class HttpClient {
       cancelToken: this.axiosSource.token,
       method,
       url,
-      headers: {
-        Authorization: token,
-      },
       data,
       params,
     });
   }
 }
+
+export { HttpMethod };
+
+export default HttpClient;
