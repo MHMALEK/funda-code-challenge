@@ -11,9 +11,9 @@ export enum HttpMethod {
 export class HttpClient {
   private _baseUrl: string;
 
-  private CancelToken: Axios.CancelTokenStatic;
+  private CancelToken!: Axios.CancelTokenStatic;
 
-  private axiosSource: Axios.CancelTokenSource;
+  private axiosSource!: Axios.CancelTokenSource;
 
   /**
    * Create a new Http Client
@@ -22,7 +22,6 @@ export class HttpClient {
     this._baseUrl = baseUrl;
     this.createCancelToken();
     this.createCancelToken = this.createCancelToken.bind(this);
-    this.cancelAllRequests = this.cancelAllRequests.bind(this);
   }
 
   createCancelToken() {
@@ -36,11 +35,6 @@ export class HttpClient {
    */
   public getBaseUrl() {
     return this._baseUrl;
-  }
-
-  public cancelAllRequests() {
-    this.axiosSource.cancel();
-    this.createCancelToken();
   }
 
   /**
