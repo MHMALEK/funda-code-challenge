@@ -1,21 +1,28 @@
-import * as Axios from 'axios';
+import * as Axios from "axios";
 
-export const HttpMethod = {
-  GET: 'GET',
-  POST: 'POST',
-  PATCH: 'PATCH',
-  PUT: 'PUT',
-  DELETE: 'DELETE',
+export enum HttpMethod {
+  GET = "GET",
+  POST = "POST",
+  PATCH = "PATCH",
+  PUT = "PUT",
+  DELETE = "DELETE",
 }
 
 export class HttpClient {
- 
+  private _baseUrl: string;
+
+  private CancelToken: Axios.CancelTokenStatic;
+
+  private axiosSource: Axios.CancelTokenSource;
 
   /**
    * Create a new Http Client
    */
-  constructor(baseUrl) {
+  constructor(baseUrl: string) {
     this._baseUrl = baseUrl;
+    this.createCancelToken();
+    this.createCancelToken = this.createCancelToken.bind(this);
+    this.cancelAllRequests = this.cancelAllRequests.bind(this);
   }
 
   createCancelToken() {
@@ -27,8 +34,13 @@ export class HttpClient {
   /**
    * Return base URL of the current Http Client
    */
-   getBaseUrl() {
+  public getBaseUrl() {
     return this._baseUrl;
+  }
+
+  public cancelAllRequests() {
+    this.axiosSource.cancel();
+    this.createCancelToken();
   }
 
   /**
@@ -42,7 +54,7 @@ export class HttpClient {
     url: string,
     token?: string,
     data?: D,
-    params?: P,
+    params?: P
   ): Promise<Axios.AxiosResponse> {
     return Axios.default.request({
       baseURL: this._baseUrl,
