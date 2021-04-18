@@ -2,8 +2,8 @@ import FundaPartnerClient from "../../client";
 import { HttpMethod } from "../../../utils/http-client";
 
 interface ObjectDetailsPayload {
-  key: string;
-  houseId: string;
+  key: string | undefined;
+  houseId: string | undefined;
 }
 /**
  * get Object Data from server

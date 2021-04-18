@@ -3,15 +3,20 @@ import { ActionsTypeInterface } from "./types";
 import ActionTypes from "./action-types";
 import { ActionTree } from "vuex";
 import { StateType } from "./types";
+import { fetchHomeObjectDetails } from "../../../services/api/home-details";
 
 const actions: ActionTree<StateType, any> & ActionsTypeInterface = {
-  async [ActionTypes.SAMPLE_ACTION]({ commit }) {
-    commit(MutationTypes.SAMPLE_MUTATION);
+  async [ActionTypes.FETCH_HOUSE_DETAILS_ACTION]({ commit }) {
+    const { VITE_SAMPLE_TEST_KEY, VITE_SAMPLE_OBJECT_ID } = import.meta.env;
+    commit(MutationTypes.FETCH_HOUSE_DETAILS);
     try {
-      // await asyncAction();
-      commit(MutationTypes.SAMPLE_MUTATION_FULFILLED);
+      const houseDetails = await fetchHomeObjectDetails({
+        key: VITE_SAMPLE_TEST_KEY,
+        houseId: VITE_SAMPLE_OBJECT_ID,
+      });
+      commit(MutationTypes.FETCH_HOUSE_DETAILS_FULFILLED, houseDetails);
     } catch (error) {
-      commit(MutationTypes.SAMPLE_MUTATION_FAILD);
+      commit(MutationTypes.FETCH_HOUSE_DETAILS_FAILD);
     }
   },
 };

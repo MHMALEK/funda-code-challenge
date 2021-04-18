@@ -5,13 +5,15 @@ import ActionTypes from "./action-types";
 // init State Types:
 type StateType = {
   sampleState: boolean;
+  houseDetails: any; // TODO: it's coming from API so we are not sure about it.
+  getHouseDetailsIsPending: boolean;
 };
 
 // MutationTypes
 type MutationsTypeInterface<S = StateType> = {
-  [MutationTypes.SAMPLE_MUTATION](state: S): void;
-  [MutationTypes.SAMPLE_MUTATION_FULFILLED](state: S): void;
-  [MutationTypes.SAMPLE_MUTATION_FAILD](state: S): void;
+  [MutationTypes.FETCH_HOUSE_DETAILS](state: S): void;
+  [MutationTypes.FETCH_HOUSE_DETAILS_FAILD](state: S): void;
+  [MutationTypes.FETCH_HOUSE_DETAILS_FULFILLED](state: S): void;
 };
 
 // default VUEX Types
@@ -21,11 +23,13 @@ interface ActionTypeDefault {
 
 // action Types
 interface ActionsTypeInterface {
-  [ActionTypes.SAMPLE_ACTION]({ commit }: ActionTypeDefault): Promise<any>;
+  [ActionTypes.FETCH_HOUSE_DETAILS_ACTION]({
+    commit,
+  }: ActionTypeDefault): Promise<any>;
 }
 
 type GettersType = {
-  getSampleGetter: (state: StateType) => boolean;
+  getHouseDetailsIsPending: (state: StateType) => boolean;
 };
 
 export {

@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getSampleAction: ActionTypes.SAMPLE_ACTION,
+      getSampleAction: ActionTypes.FETCH_HOUSE_DETAILS_ACTION,
     }),
   },
 };

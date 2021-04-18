@@ -1,7 +1,7 @@
 import { GettersType } from "./types";
 
 const getters: GettersType = {
-  getSampleGetter: (state) => state.sampleState,
+  getHouseDetailsIsPending: (state) => state.getHouseDetailsIsPending,
 };
 
 export default getters;
