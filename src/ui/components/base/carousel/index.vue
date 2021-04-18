@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>a</div>
-    <div>b</div>
-    <div>c</div>
+    <slot></slot>
   </div>
 </template>
 <script>
