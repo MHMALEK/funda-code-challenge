@@ -1,5 +1,4 @@
 <template>
-  {{ DEFAULT_API_KEY }}
   <GoogleMap
     :api-key="DEFAULT_API_KEY"
     style="width: 100%; height: 500px"
