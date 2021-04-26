@@ -12,7 +12,12 @@ export default {
     options: {
       type: Object,
       default: function () {
-        return {};
+        return {
+          arrows: false,
+          dots: true,
+          dotsClass: "base-carousel__dots",
+          fade: true,
+        };
       },
     },
   },
@@ -44,6 +49,33 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+.base-carousel__dots {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+
+  li {
+    button {
+      font-size: 0;
+      background-color: gray;
+      opacity: 0.5;
+      width: 20px;
+      height: 5px;
+      border-radius: 16px;
+      margin: 0 4px;
+    }
+    &.slick-active {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+}
 </style>

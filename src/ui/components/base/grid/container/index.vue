@@ -21,6 +21,7 @@ export default {
       return {
         "px-4": this.withPadding,
         "mx-auto": this.centerContent,
+        container: "container",
       };
     },
   },

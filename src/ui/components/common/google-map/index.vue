@@ -5,7 +5,7 @@
     :center="center"
     :zoom="15"
   >
-    <Marker :options="{ position: center }" />
+    <Marker :options="{ position: markerPosition }" />
   </GoogleMap>
 </template>
 
@@ -15,10 +15,23 @@ import { GoogleMap, Marker } from "vue3-google-map";
 
 export default defineComponent({
   components: { GoogleMap, Marker },
+  props: {
+    markerPosition: {
+      type: Object,
+      required: true,
+    },
+  },
   setup() {
-    const center = { lat: 40.689247, lng: -74.044502 };
     const DEFAULT_API_KEY = ref(import.meta.env.VITE_GOOGLE_MAP_API_KEY);
-    return { center, DEFAULT_API_KEY };
+    return { DEFAULT_API_KEY };
+  },
+  data: function () {
+    return {
+      center: {
+        lat: this.markerPosition.lat,
+        lng: this.markerPosition.lng,
+      },
+    };
   },
 });
 </script>

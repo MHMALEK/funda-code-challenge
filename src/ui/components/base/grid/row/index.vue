@@ -1,7 +1,7 @@
 <template>
   <div :class="containerClassNames">
     <slot name="title"></slot>
-    <slot name="description"></slot>
+    <slot name="description">s</slot>
   </div>
 </template>
 <script>

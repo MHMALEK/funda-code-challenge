@@ -1,21 +1,18 @@
 <template>
   <div :class="containerClassNames">
     <div class="row-span-2 col-span-6">
-      <img
-        src="http://cloud.funda.nl/valentina_media/067/206/810_grotere.jpg"
+      <base-image
+        :id="mainImage.Id"
+        :media-items="mainImage.MediaItems"
+        :metadata="mainImage.MediaItems.Metadata"
       />
     </div>
-    <div class="shadow-md col-span-3">
-      <img src="http://cloud.funda.nl/valentina_media/067/206/812_groot.jpg" />
-    </div>
-    <div class="shadow-md col-span-3">
-      <img src="http://cloud.funda.nl/valentina_media/067/206/812_groot.jpg" />
-    </div>
-    <div class="shadow-md col-span-3">
-      <img src="http://cloud.funda.nl/valentina_media/067/206/812_groot.jpg" />
-    </div>
-    <div class="shadow-md col-span-3">
-      <img src="http://cloud.funda.nl/valentina_media/067/206/812_groot.jpg" />
+    <div v-for="image in images" :key="image.Id" class="col-span-3">
+      <base-image
+        :id="image.Id"
+        :media-items="image.MediaItems"
+        :metadata="image.Metadata"
+      />
     </div>
   </div>
 </template>
@@ -23,8 +20,14 @@
 <script>
 import { defineComponent } from "vue";
 import GalleryThemes from "./types";
+import BaseImage from "../../base/image/index.vue";
+
 export default defineComponent({
   name: "CommonImageGallery",
+
+  components: {
+    BaseImage,
+  },
   props: {
     cols: {
       type: Number,
@@ -37,6 +40,14 @@ export default defineComponent({
     theme: {
       type: String,
       default: GalleryThemes.FUNDA_DEFAULT_THEME,
+    },
+    images: {
+      type: Array,
+      required: true,
+    },
+    mainImage: {
+      type: Object,
+      required: true,
     },
   },
   computed: {
