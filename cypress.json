@@ -1,7 +1,6 @@
 {
   "baseUrl": "http://localhost:3000",
-  "integrationFolder": "e2e",
-  "pluginsFile": false,
+  "integrationFolder": "cypress",
   "supportFile": false,
   "video": false
 }
