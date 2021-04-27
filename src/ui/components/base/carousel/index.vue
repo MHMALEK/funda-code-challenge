@@ -25,7 +25,7 @@ export default {
     this.create();
   },
   unmounted: function () {
-    $(this.$el).slick("unslick");
+    this.destroy();
   },
   methods: {
     create: function () {

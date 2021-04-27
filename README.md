@@ -14,6 +14,9 @@ this is a code challenge that developed for Funda
 
 - [vite](https://vitejs.dev/). I could develop this project using a custom webpack, but I prefer this standard boilerplate.
 - Tailwind for CSS
+- Unit tests with jest and vue-test-utils
+- husky and lint stage for make sure all commits are fully linted
+- Eslint for better code quality and integrated code
 - [Cypress for functional test](https://www.cypress.io/)
 - webpack as module bundler
 - docker and docker compose
@@ -37,8 +40,9 @@ the project doesn't have real responsive UI and it's just provide main functiona
 
 │ ├── assets # main assets files that will be bundled by React and won't be cached (because of hash). I put only main images in here.
 
+│ │ ├── mixin # main mixin file (it's not used here)
 
-│ ├── providers # main app providers (inclduing error provider. error-handler for my project is often use for a source of error handling for all error happening in project. but we don't have enough data to use here and didn't have time to do so it's not working and just here for showcase my works.
+│ │ ├── error-handler # main error bundary to catch errors and handle them in one place
 
 │ │ ├── router # main router file and it's configuration
 
@@ -49,7 +53,7 @@ the project doesn't have real responsive UI and it's just provide main functiona
 
 │ ├── Styles # main general Styles.
 
-│ ├── UI # main React components including layouts, pages, logical components that might be used or shared in diffrent pages(common) and stateless UI components that are mainly use to show basic UI (base-components)
+│ ├── UI # main React components including layouts, pages, logical components that might be used or shared in diffrent pages(common) and stateless UI components that are mainly use to show basic UI (base-components) directives and screens (routes) composables(reusable stuff for other components)
 
 │ ├── utils # utilites that are generaly used in project. here is arrays and strings
 
@@ -64,7 +68,7 @@ the project doesn't have real responsive UI and it's just provide main functiona
 
 └── README.md
 
-└── ... # other configs for editor config, typescript, prettier and ...
+└── ... # other configs for editor config, prettier and ...
 
 
 ```
