@@ -25,7 +25,7 @@
         />
       </section>
 
-      <section class="shadow-md">
+      <section>
         <!-- show gallery on Desktop -->
         <house-details
           :aangeboden-sinds="houseDetailsGetter.aangebodenSinds"

@@ -1,11 +1,12 @@
 <template>
-  <div class="mb-5 mt-5 bg-white sm:rounded-lg shadow-md bg-gray-100">
-    <div class="px-4 py-5 sm:px-6">
-      <h3 class="text-lg leading-6 font-medium text-gray-900 text-left">
-        {{ title }}
-      </h3>
-    </div>
-    <div class="border-t border-gray-200">
+  <div class="mb-7 mt-7 bg-white sm:rounded-lg">
+    <h3 class="text-lg leading-6 font-medium text-gray-900 text-left">
+      {{ title }}
+    </h3>
+  </div>
+
+  <div class="mb-5 mt-5 bg-white sm:rounded-lg shadow-md">
+    <div class="">
       <base-grid-row v-if="aangebodenSinds">
         <template #title>
           <base-grid-col>
@@ -62,56 +63,59 @@
           <base-grid-col> {{ energielabel }} </base-grid-col>
         </template>
       </base-grid-row>
-
-      <!-- broker details -->
-      <base-grid-row backround-color="bg-white">
-        <template #title>
-          <base-grid-col>
-            <base-typography> Makelaar </base-typography>
-          </base-grid-col>
-        </template>
-        <template #description>
-          <base-grid-col> {{ makelaar }} </base-grid-col>
-        </template>
-      </base-grid-row>
-
-      <base-grid-row>
-        <template #title>
-          <base-grid-col>
-            <base-typography>Makelaar Telefoon </base-typography>
-          </base-grid-col>
-        </template>
-        <template #description>
-          <base-grid-col>
-            <base-telephone-link :number="makelaarTelefoon" />
-          </base-grid-col>
-        </template>
-      </base-grid-row>
-
-      <!-- address -->
-
-      <base-grid-row backround-color="bg-white">
-        <template #title>
-          <base-grid-col>
-            <base-typography>Adres </base-typography>
-          </base-grid-col>
-        </template>
-        <template #description>
-          <base-grid-col> {{ adres }} </base-grid-col>
-        </template>
-      </base-grid-row>
-
-      <base-grid-row>
-        <template #title>
-          <base-grid-col>
-            <base-typography> Ligging </base-typography></base-grid-col
-          >
-        </template>
-        <template #description>
-          <base-grid-col> {{ ligging }} </base-grid-col>
-        </template>
-      </base-grid-row>
     </div>
+  </div>
+
+  <div class="mb-5 mt-5 bg-white sm:rounded-lg shadow-md">
+    <!-- broker details -->
+    <base-grid-row backround-color="bg-white">
+      <template #title>
+        <base-grid-col>
+          <base-typography> Makelaar </base-typography>
+        </base-grid-col>
+      </template>
+      <template #description>
+        <base-grid-col> {{ makelaar }} </base-grid-col>
+      </template>
+    </base-grid-row>
+
+    <base-grid-row>
+      <template #title>
+        <base-grid-col>
+          <base-typography>Makelaar Telefoon </base-typography>
+        </base-grid-col>
+      </template>
+      <template #description>
+        <base-grid-col>
+          <base-telephone-link :number="makelaarTelefoon" />
+        </base-grid-col>
+      </template>
+    </base-grid-row>
+  </div>
+  <div class="mb-5 mt-5 bg-white sm:rounded-lg shadow-md">
+    <!-- address -->
+
+    <base-grid-row backround-color="bg-white">
+      <template #title>
+        <base-grid-col>
+          <base-typography>Adres </base-typography>
+        </base-grid-col>
+      </template>
+      <template #description>
+        <base-grid-col> {{ adres }} </base-grid-col>
+      </template>
+    </base-grid-row>
+
+    <base-grid-row>
+      <template #title>
+        <base-grid-col>
+          <base-typography> Ligging </base-typography></base-grid-col
+        >
+      </template>
+      <template #description>
+        <base-grid-col> {{ ligging }} </base-grid-col>
+      </template>
+    </base-grid-row>
   </div>
 </template>
 

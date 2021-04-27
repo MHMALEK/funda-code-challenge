@@ -1,7 +1,7 @@
 import MutationTypes from "./mutation-types";
 import ActionTypes from "./action-types";
 import { fetchHomeObjectDetails } from "../../../services/api/home-details";
-import houseDetailsDataTransformer from "../../../data/transformers/house-details";
+import houseDetailsDataTransformer from "../../../services/data/transformers/house-details";
 
 const actions = {
   async [ActionTypes.FETCH_HOUSE_DETAILS_ACTION]({ commit }) {
